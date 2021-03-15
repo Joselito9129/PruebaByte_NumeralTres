@@ -11,7 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -127,7 +130,7 @@ public class CompanyController {
 	}
 
 	@Async
-	@PostMapping("/delete")
+	@DeleteMapping("/delete")
 	public ListenableFuture<ResponseEntity<CompanyResponse>> delete(@RequestBody CompanyRequest request) {
 		log.info("BEGIN METHOD COMPANY: delete()");
 		CompanyResponse response = new CompanyResponse();
@@ -163,7 +166,7 @@ public class CompanyController {
 	}
 
 	@Async
-	@PostMapping("/update")
+	@PutMapping("/update")
 	public ListenableFuture<ResponseEntity<CompanyResponse>> update(@RequestBody CompanyRequest request) {
 		log.info("BEGIN METHOD COMPANY: update()");
 		CompanyResponse response = new CompanyResponse();
@@ -224,7 +227,7 @@ public class CompanyController {
 	}
 
 	@Async
-	@PostMapping("/retriveById")
+	@GetMapping("/retriveById")
 	public ListenableFuture<ResponseEntity<CompanyResponse>> getById(@RequestBody CompanyRequest request) {
 		log.info("BEGIN METHOD COMPANY: getById()");
 		CompanyResponse response = new CompanyResponse();
@@ -258,7 +261,7 @@ public class CompanyController {
 	}
 
 	@Async
-	@PostMapping("/retriveAll")
+	@GetMapping("/retriveAll")
 	public ListenableFuture<ResponseEntity<CompanyResponse>> getAll() {
 		log.info("BEGIN METHOD COMPANY: getAll()");
 		CompanyResponse response = new CompanyResponse();
